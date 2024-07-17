@@ -40,22 +40,4 @@ test('Can list Haircuts', function () {
     expect($response['data'])->toHaveCount(1);
 });
 
-//test('Can create new Haircut', function () {
-//    $response = $this->postJson(route('haircuts.store'), [
-//        'hair_cut_category_id' => 2,
-//        'name' => 'Haircut 3',
-//        'price' => 10.20,
-//        'image' => 'image1',
-//    ]);
-//
-//    $response
-//        ->assertStatus(200)
-//        ->assertJsonFragment([
-//            'hair_cut_category_id' => 2,
-//            'name' => 'Haircut 3',
-//            'price' => 10.20,
-//            'image' => 'image1',
-//        ]);
-//
-//    expect(HairCut::all())->toHaveCount(1);
-//});
+

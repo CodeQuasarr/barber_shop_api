@@ -22,13 +22,15 @@ class HaircutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (auth()->user()->cannot('create', HairCut::class)) {
+            abort(403);
+        };
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(HairCut $id)
     {
         //
     }
@@ -36,7 +38,7 @@ class HaircutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, HairCut $id)
     {
         //
     }
@@ -44,7 +46,7 @@ class HaircutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(HairCut $id)
     {
         //
     }
