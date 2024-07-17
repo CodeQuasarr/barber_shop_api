@@ -53,23 +53,23 @@ class HairCut extends Model
         return $this->hasMany(HairCutReservation::class);
     }
 
-    public function getFormattedPriceAttribute(): string
-    {
-        return number_format($this->price, 2);
-    }
+//    public function getFormattedPriceAttribute(): string
+//    {
+//        return number_format($this->price, 2);
+//    }
 
-    public function getFormattedNameAttribute(): string
-    {
-        return ucwords($this->name);
-    }
+//    public function getFormattedNameAttribute(): string
+//    {
+//        return ucwords($this->name);
+//    }
 
-    public function getFormattedDescriptionAttribute(): string
-    {
-        return ucfirst($this->description);
-    }
+//    public function getFormattedDescriptionAttribute(): string
+//    {
+//        return ucfirst($this->description);
+//    }
 
-    public function getFormattedCategoryAttribute()
-    {
-        return ucwords($this->category->name);
-    }
+//    public function getFormattedCategoryAttribute()
+//    {
+//        return ucwords($this->category->name);
+//    }
 }
