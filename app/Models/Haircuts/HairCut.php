@@ -27,6 +27,8 @@ class HairCut extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'hair_cuts';
+
     protected $fillable = ['hair_cut_category_id', 'name', 'description', 'price', 'image', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
