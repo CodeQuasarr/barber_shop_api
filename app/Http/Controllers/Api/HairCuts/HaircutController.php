@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class HaircutController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @description Display a listing of the resource.
+     * @return HaircutCollection
      */
     public function index(): HaircutCollection
     {
@@ -18,7 +19,8 @@ class HaircutController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @description Store a newly created resource in storage.
+     * @param Request $request
      */
     public function store(Request $request)
     {
