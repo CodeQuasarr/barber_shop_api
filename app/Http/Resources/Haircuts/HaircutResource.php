@@ -14,6 +14,16 @@ class HaircutResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return collect($this->resource)->only(['id', 'name', 'price', 'image'])->toArray();
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'price' => $this->price,
+            'category' => $this->category->getName(),
+            'imageSrc' => $this->imageSrc,
+            'imageAlt' => $this->imageAlt,
+            'date' => $this->date,
+            'sales' => $this->sales,
+            'isOnSale' => $this->isOnSale,
+        ];
     }
 }

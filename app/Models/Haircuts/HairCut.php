@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -17,8 +18,11 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property string imageSrc
+ * @property string imageAlt
+ * @property string stripe_product_id
  * @property float $price
- * @property int $category_id
+ * @property int $hair_cut_category_id
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon|null $deleted_at
@@ -43,14 +47,19 @@ class HairCut extends Model
         ];
     }
 
-    public function category(): BelongsTo
+    public function category(): hasOne
     {
-        return $this->belongsTo(HairCutCategory::class);
+        return $this->hasOne(HairCutCategory::class, 'id', 'hair_cut_category_id');
     }
 
     public function reservations(): HasMany
     {
         return $this->hasMany(HairCutReservation::class);
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
 //    public function getFormattedPriceAttribute(): string

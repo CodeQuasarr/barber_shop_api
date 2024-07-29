@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\HairCuts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Haircuts\HaircutCollection;
+use App\Http\Resources\Haircuts\HaircutResource;
 use App\Models\Haircuts\HairCut;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class HaircutController extends Controller
      */
     public function index(): HaircutCollection
     {
-        return new HaircutCollection(Haircut::query()->paginate(3));
+        return new HaircutCollection(Haircut::all());
     }
 
     /**
@@ -32,9 +33,40 @@ class HaircutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HairCut $id)
+    public function show(HairCut $haircut)
     {
-        //
+        $data = [
+            'id' => $haircut->getKey(),
+            'name' => $haircut->getName(),
+            'price' => $haircut->price,
+            'description' => fake()->paragraph(5),
+            'stripe_product_id' => $haircut->stripe_product_id,
+            'details' => fake()->paragraph(3),
+            'images' => [
+                [
+                    'src' => $haircut->imageSrc,
+                    'alt' => $haircut->imageAlt,
+                ],
+                [
+                    'src' => $haircut->imageSrc,
+                    'alt' => $haircut->imageAlt,
+                ],
+            ],
+            'highlights' => [
+                'Facilité d\'Entretien',
+                'Couleur Rose Vibrante',
+                'Cheveux de Haute Qualité',
+                'Confort Optimal',
+            ],
+            'sizes' => [
+                ['name' => 'XXS', 'inStock' => false],
+                ['name' => 'XS', 'inStock' => true],
+                ['name' => 'S', 'inStock' => true],
+                ['name' => 'M', 'inStock' => true],
+            ]
+        ];
+
+        return response()->json($data);
     }
 
     /**

@@ -27,4 +27,9 @@ class HairCutCategory extends Model
         return $this->hasMany(HairCut::class);
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
 }
