@@ -6,6 +6,7 @@ use App\Helper\ResponseHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -44,14 +45,17 @@ class AuthController extends Controller
      * @param RegisterRequest $request
      * @return JsonResponse
      */
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request): JsonResponse
     {
         try {
             $data = $request->validated();
             $data['password'] = Hash::make($data['password']);
-            $user = User::create($data);
-            $token = $user->createToken('auth_token')->plainTextToken;
-
+            User::create([
+                'name' =>$request->name,
+                'email' => $request->email,
+                'password' => $request->password,
+                'phone' => $request->phone
+            ]);
             return ResponseHelper::success('User registered successfully', ResponseAlias::HTTP_CREATED);
         } catch (\Exception $e) {
             Log::error("unable to register user: {$e->getMessage()}");

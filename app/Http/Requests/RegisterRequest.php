@@ -23,29 +23,10 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'     => 'required|email|unique:users',
-            'name'      => 'required|string|min:5|max:151',
-            'password'  => 'required|string|min:6|confirmed',
-            'phone'     => 'required|unique:users',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'email.required' => 'Email is required',
-            'email.email' => 'Email is invalid',
-            'email.unique' => 'Email is already taken',
-            'name.required' => 'Name is required',
-            'name.string' => 'Name must be a string',
-            'name.min' => 'Name must be at least 5 characters',
-            'name.max' => 'Name must not be more than 151 characters',
-            'password.required' => 'Password is required',
-            'password.string' => 'Password must be a string',
-            'password.min' => 'Password must be at least 6 characters',
-            'password.confirmed' => 'Passwords do not match',
-            'phone.required' => 'Phone is required',
-            'phone.unique' => 'Phone is already taken',
+            'name' => 'required|string|min:2|max:255',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|confirmed|min:8',
+            'phone' => 'required|string'
         ];
     }
 }
