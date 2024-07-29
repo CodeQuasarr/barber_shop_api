@@ -29,7 +29,7 @@ class HairCut extends Model
 
     protected $table = 'hair_cuts';
 
-    protected $fillable = ['hair_cut_category_id', 'name', 'description', 'price', 'image', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['stripe_product_id', 'hair_cut_category_id', 'name', 'description', 'price', 'imageSrc', 'imageAlt', 'date', 'sales', 'isOnSale', 'date', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * Get the attributes that should be cast.

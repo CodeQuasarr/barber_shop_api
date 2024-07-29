@@ -15,10 +15,15 @@ return new class extends Migration
         Schema::create('hair_cuts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(HairCutCategory::class);
+            $table->string('stripe_product_id');
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->string('image')->nullable();
+            $table->string('imageSrc')->nullable();
+            $table->string('imageAlt')->nullable();
+            $table->string('date');
+            $table->integer('sales')->nullable();
+            $table->boolean('isOnSale')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

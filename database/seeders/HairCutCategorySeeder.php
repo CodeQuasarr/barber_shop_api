@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Haircuts\HairCutCategory;;
 use Illuminate\Database\Seeder;
 
 class HairCutCategorySeeder extends Seeder
@@ -12,6 +12,14 @@ class HairCutCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $categories = [
+            ['name' => 'Bikiwig'],
+            ['name' => 'naturels'],
+            ['name' => 'Remy Hair'],
+        ];
+
+        foreach ($categories as $category) {
+            HairCutCategory::create($category);
+        }
     }
 }
