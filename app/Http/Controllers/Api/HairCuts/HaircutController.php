@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\HairCuts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Haircuts\HaircutCollection;
-use App\Http\Resources\Haircuts\HaircutResource;
+use App\Http\Resources\Haircuts\OrderResource;
 use App\Models\Haircuts\HairCut;
 use Illuminate\Http\Request;
 

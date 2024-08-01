@@ -13,9 +13,8 @@ class PaymentController extends Controller
 
     public function index(Request $request)
     {
-        Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe::setApiKey(env('VITE_STRIPE_KEY'));
         $ids = $request->get('ids');
-        $items = [];
 
         try {
             $products = HairCut::query()->whereIn('id', $ids)->get();

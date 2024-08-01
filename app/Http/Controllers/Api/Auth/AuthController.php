@@ -33,7 +33,7 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = $user->createToken('auth_token')->plainTextToken;
 
-            return ResponseHelper::success('User logged in successfully', ResponseAlias::HTTP_OK, ['token' => $token]);
+            return ResponseHelper::success('User logged in successfully', ResponseAlias::HTTP_OK, ['token' => $token, 'name' => $user->name]);
         } catch (\Exception $e) {
             Log::error("unable to login user: {$e->getMessage()}");
             return ResponseHelper::error('An error occurred', ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
