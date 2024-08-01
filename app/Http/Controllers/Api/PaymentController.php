@@ -14,15 +14,12 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
-        $ids = $request->get('items');
+        $ids = $request->get('ids');
         $items = [];
 
         try {
-            $products = HairCut::query()->whereIn('id', [1,2,3])->get();
-            $total = 0;
-            foreach ($products as $product) {
-                $total += $product->price;
-            }
+            $products = HairCut::query()->whereIn('id', $ids)->get();
+            $total = $products->sum('price');
 
             $paymentIntent = PaymentIntent::create([
                 'amount' => $total * 100,
