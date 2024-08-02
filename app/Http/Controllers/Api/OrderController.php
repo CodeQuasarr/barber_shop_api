@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Orders\OrderCollection;
 use App\Models\Haircuts\HairCut;
 use App\Models\Order;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Response;
@@ -14,6 +15,7 @@ class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * @return OrderCollection
      */
     public function index(): OrderCollection
     {
@@ -23,6 +25,8 @@ class OrderController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
@@ -70,6 +74,12 @@ class OrderController extends Controller
         //
     }
 
+    /**
+     * Download the invoice for the order.
+     * @param Request $request
+     * @param $orderId
+     * @return Response
+     */
     public function download(Request $request, $orderId): Response
     {
         $order = Order::findOrFail($orderId);

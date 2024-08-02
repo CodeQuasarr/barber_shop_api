@@ -2,6 +2,7 @@
 
 namespace App\Models\Haircuts;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -45,6 +46,15 @@ class HairCut extends Model
         return [
             'price' => 'float',
         ];
+    }
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('name', 'ASC');
+        });
     }
 
     public function category(): hasOne

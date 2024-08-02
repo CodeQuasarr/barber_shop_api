@@ -13,7 +13,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
 });
 
-Route::apiResource('haircuts', HaircutController::class);
+Route::apiResource('haircuts', HaircutController::class)->only(['index', 'show', 'store']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('payment', [PaymentController::class, 'index']);
     Route::apiResource('orders', OrderController::class);

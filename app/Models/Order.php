@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Haircuts\HairCut;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,6 +27,16 @@ class Order extends Model
         return [
             'price' => 'float',
         ];
+    }
+
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::addGlobalScope('order', function (Builder $builder) {
+            $builder->orderBy('created_at', 'DESC');
+        });
     }
 
     public function haircuts(): BelongsToMany
