@@ -16,7 +16,7 @@ class HairCutSeeder extends Seeder
         $haircutLists = [
             [
                 'stripe_product_id' => 'prod_QYpW4EwK6MKrGs',
-                'name' => 'Perruque de cheveux bleu',
+                'name' => 'Red Head Style Wig',
                 'description' => 'Exprimez votre personnalité audacieuse avec notre perruque rose vibrante, un choix parfait pour celles qui souhaitent ajouter une touche de glamour et de fraîcheur à leur look. Fabriquée à partir de cheveux de haute qualité, cette perruque offre non seulement une couleur rose intense et éclatante, mais aussi un confort exceptionnel et une apparence naturelle qui ne passera pas inaperçue.',
                 'imageSrc' => 'shop-1.webp',
                 'imageAlt' => 'Image description for product 1.',
@@ -28,7 +28,7 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpV642p31V5BR',
-                'name' => 'Perruque de cheveux bruns',
+                'name' => 'Blond Hair Wig',
                 'description' => 'Journals and note-taking',
                 'imageSrc' => 'shop-2.webp',
                 'imageAlt' => 'Image description for product 2.',
@@ -40,7 +40,7 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpVADxFNg3Q53',
-                'name' => 'Perruque de cheveux noirs',
+                'name' => 'Short Hair Wig',
                 'description' => 'Work from home accessories',
                 'imageSrc' => 'shop-3.webp',
                 'imageAlt' => 'Image description for product 3.',
@@ -52,7 +52,7 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpTpWum6tqwbB',
-                'name' => 'Perruque de cheveux blonds',
+                'name' => 'Jet Black Human Hair',
                 'description' => 'Journals and note-taking',
                 'imageSrc' => 'shop-4.webp',
                 'imageAlt' => 'Image description for product 4.',
@@ -64,7 +64,7 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpTHFUqRntHJJ',
-                'name' => 'Perruque de cheveux châtains',
+                'name' => 'Straight Hair Wig',
                 'description' => 'Work from home accessories',
                 'imageSrc' => 'shop-5.webp',
                 'imageAlt' => 'Image description for product 5.',
@@ -76,7 +76,7 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpTq4f6aTwY0s',
-                'name' => 'Perruque de cheveux roux',
+                'name' => 'Brown Human wig',
                 'description' => 'Journals and note-taking',
                 'imageSrc' => 'shop-6.webp',
                 'imageAlt' => 'Image description for product 6.',
@@ -88,9 +88,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpSZg702De1xK',
-                'name' => 'Perruque de cheveux blancs',
+                'name' => 'Long Hair Golden Wig',
                 'description' => 'Work from home accessories',
-                'imageSrc' => 'shop-1.webp',
+                'imageSrc' => 'shop-7.webp',
                 'imageAlt' => 'Image description for product 7.',
                 'price' => 150,
                 "hair_cut_category_id" => 2,
@@ -100,9 +100,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpQN24uBdlzcN',
-                'name' => 'Perruque de cheveux gris',
+                'name' => 'Blonde Human Hair',
                 'description' => 'Journals and note-taking',
-                'imageSrc' => 'shop-2.webp',
+                'imageSrc' => 'shop-8.webp',
                 'imageAlt' => 'Image description for product 8.',
                 'price' => 200,
                 "hair_cut_category_id" => 2,
@@ -112,9 +112,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpQu5v4MezXtm',
-                'name' => 'Perruque de cheveux tissage',
+                'name' => 'Long Hair Jet Black',
                 'description' => 'Work from home accessories',
-                'imageSrc' => 'shop-3.webp',
+                'imageSrc' => 'shop-9.webp',
                 'imageAlt' => 'Image description for product 9.',
                 'price' => 250,
                 "hair_cut_category_id" => 2,
@@ -124,9 +124,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpPJ0JqfLTKbs',
-                'name' => 'Perruque de cheveux rose',
+                'name' => 'Brunette Long hair',
                 'description' => 'Journals and note-taking',
-                'imageSrc' => 'shop-4.webp',
+                'imageSrc' => 'shop-10.webp',
                 'imageAlt' => 'Image description for product 10.',
                 'price' => 400,
                 "hair_cut_category_id" => 2,
@@ -136,9 +136,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpOBYSwdGIRnA',
-                'name' => 'Perruque de cheveux blonds coupe',
+                'name' => 'Curly Brown Wig',
                 'description' => 'Work from home accessories',
-                'imageSrc' => 'shop-5.webp',
+                'imageSrc' => 'shop-11.webp',
                 'imageAlt' => 'Image description for product 11.',
                 'price' => 300,
                 "hair_cut_category_id" => 3,
@@ -148,9 +148,9 @@ class HairCutSeeder extends Seeder
             ],
             [
                 'stripe_product_id' => 'prod_QYpNZsYjZfqZ8B',
-                'name' => 'Perruque de cheveux gris',
+                'name' => 'Brown Silky Hair',
                 'description' => 'Journals and note-taking',
-                'imageSrc' => 'shop-6.webp',
+                'imageSrc' => 'shop-12.webp',
                 'imageAlt' => 'Image description for product 12.',
                 'price' => 600,
                 "hair_cut_category_id" => 3,

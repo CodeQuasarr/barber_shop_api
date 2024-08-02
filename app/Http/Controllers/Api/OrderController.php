@@ -30,22 +30,27 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-//        $request->validate([
-//            'haircutIds' => 'required|array',
-//            'haircutIds.*' => 'exists:hair_cuts,id',
-//        ]);
 
+        $cartContent = $request->get('cartContent');
+        $ids = array_keys($cartContent);
+        $products = HairCut::query()->whereIn('id', $ids)->get();
 
-        $haircutIds = $request->input('haircutIds');
-        $haircuts = HairCut::query()->whereIn('id', $haircutIds)->get();
-        $totalPrice = $haircuts->sum('price');
+        if ($products->isEmpty()) {
+            throw new \Exception('No products found');
+        }
+
+        $amount = 0;
+
+        foreach ($products as $product) {
+            $amount += $product->price * $cartContent[$product->getKey()];
+        }
 
         $order = Order::create([
             'user_id' => auth()->id(),
-            'total_price' => $totalPrice,
+            'total_price' => $amount,
         ]);
 
-        $order->haircuts()->attach($haircutIds);
+        $order->haircuts()->attach($ids);
 
         return response()->json($order, 201);
     }

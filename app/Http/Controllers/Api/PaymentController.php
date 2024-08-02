@@ -14,14 +14,24 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         Stripe::setApiKey(env('VITE_STRIPE_KEY'));
-        $ids = $request->get('ids');
+        $cartContent = $request->get('cartContent');
 
         try {
+            $ids = array_keys($cartContent);
             $products = HairCut::query()->whereIn('id', $ids)->get();
-            $total = $products->sum('price');
+
+            if ($products->isEmpty()) {
+                throw new \Exception('No products found');
+            }
+
+            $amount = 0;
+
+            foreach ($products as $product) {
+                $amount += $product->price * $cartContent[$product->getKey()];
+            }
 
             $paymentIntent = PaymentIntent::create([
-                'amount' => $total * 100,
+                'amount' => $amount * 100,
                 'currency' => 'eur',
                 'payment_method_types' => ['card']
             ]);
